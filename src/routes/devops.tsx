@@ -7,9 +7,9 @@ import { TechMarquee } from "@/components/site/TechMarquee";
 export const Route = createFileRoute("/devops")({
   head: () => ({
     meta: [
-      { title: "DevOps & Cloud Engineering | Nexora Labs" },
+      { title: "DevOps & Cloud Engineering | MrbitX" },
       { name: "description", content: "CI/CD pipelines, infrastructure as code, observability and auto-scaling on AWS, GCP and Azure." },
-      { property: "og:title", content: "DevOps — Nexora Labs" },
+      { property: "og:title", content: "DevOps — MrbitX" },
       { property: "og:description", content: "CI/CD, IaC, observability, auto-scaling — built right the first time." },
     ],
   }),

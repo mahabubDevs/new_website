@@ -6,9 +6,9 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "Insights — Engineering Blog | Nexora Labs" },
-      { name: "description", content: "Engineering essays, product playbooks and case-study breakdowns from the Nexora Labs team." },
-      { property: "og:title", content: "Insights — Nexora Labs" },
+      { title: "Insights — Engineering Blog | MrbitX " },
+      { name: "description", content: "Engineering essays, product playbooks and case-study breakdowns from the MrbitX team." },
+      { property: "og:title", content: "Insights — MrbitX " },
       { property: "og:description", content: "Engineering essays, product playbooks and case-study breakdowns." },
     ],
   }),

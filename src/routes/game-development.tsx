@@ -7,9 +7,9 @@ import { TechMarquee } from "@/components/site/TechMarquee";
 export const Route = createFileRoute("/game-development")({
   head: () => ({
     meta: [
-      { title: "Game Development — Unity & Unreal Studios | Nexora Labs" },
+      { title: "Game Development — Unity & Unreal Studios | MrbitX " },
       { name: "description", content: "2D / 3D game development, multiplayer systems, monetization. Built in Unity and Unreal for mobile, PC and WebGL." },
-      { property: "og:title", content: "Game Development — Nexora Labs" },
+      { property: "og:title", content: "Game Development — MrbitX " },
       { property: "og:description", content: "2D & 3D games, multiplayer, monetization — Unity, Unreal, WebGL." },
     ],
   }),

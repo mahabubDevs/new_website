@@ -1,143 +1,278 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MapPin, Clock, Briefcase, Heart, Coffee, Globe, GraduationCap, ArrowRight } from "lucide-react";
+import {
+  MapPin,
+  Clock,
+  Briefcase,
+  Heart,
+  Coffee,
+  Globe,
+  GraduationCap,
+  ArrowRight,
+} from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/careers")({
-  head: () => ({
-    meta: [
-      { title: "Careers — Join Nexora Labs" },
-      {
-        name: "description",
-        content:
-          "Join 120+ engineers, designers and product thinkers shipping software people love. Open roles across web, mobile, AI and design.",
-      },
-      { property: "og:title", content: "Careers at Nexora Labs" },
-      { property: "og:description", content: "Build remarkable software with a global team. Remote-first, senior-only." },
-    ],
-  }),
   component: CareersPage,
 });
 
+type Role = string | null;
+
 const perks = [
-  { icon: Globe, t: "Remote-first", d: "Work from anywhere. We coordinate, not surveil." },
-  { icon: Coffee, t: "Async by default", d: "Deep work over endless meetings." },
-  { icon: GraduationCap, t: "$2k learning budget", d: "Books, courses, conferences — yearly." },
-  { icon: Heart, t: "Health & wellness", d: "Top-tier insurance and wellness stipend." },
+  { icon: Globe, t: "Remote-first", d: "Work from anywhere." },
+  { icon: Coffee, t: "Async by default", d: "Deep work over meetings." },
+  { icon: GraduationCap, t: "Learning budget", d: "$2k yearly growth." },
+  { icon: Heart, t: "Wellness", d: "Health & support included." },
 ];
 
 const roles = [
-  { title: "Senior Full-Stack Engineer", team: "Engineering", loc: "Remote", type: "Full-time" },
-  { title: "iOS Engineer (Swift)", team: "Mobile", loc: "Remote / EU", type: "Full-time" },
-  { title: "Android Engineer (Kotlin)", team: "Mobile", loc: "Remote", type: "Full-time" },
-  { title: "Senior Product Designer", team: "Design", loc: "Remote", type: "Full-time" },
-  { title: "AI / ML Engineer", team: "AI", loc: "Remote", type: "Full-time" },
-  { title: "DevOps Engineer", team: "Platform", loc: "Remote", type: "Full-time" },
-  { title: "Engineering Manager", team: "Leadership", loc: "Remote / Berlin", type: "Full-time" },
-  { title: "QA Automation Engineer", team: "Quality", loc: "Remote", type: "Full-time" },
+  {
+    title: "Senior Full-Stack Engineer",
+    team: "Engineering",
+    loc: "Remote",
+    type: "Full-time",
+  },
+  {
+    title: "Frontend Engineer (React)",
+    team: "Engineering",
+    loc: "Remote / Onsite (Dhaka)",
+    type: "Full-time",
+  },
+  {
+    title: "Backend Engineer (Node.js)",
+    team: "Engineering",
+    loc: "Remote",
+    type: "Full-time",
+  },
+  {
+    title: "AI Engineer",
+    team: "AI",
+    loc: "Remote",
+    type: "Full-time",
+  },
+  {
+    title: "Machine Learning Engineer",
+    team: "AI",
+    loc: "Remote / Hybrid",
+    type: "Full-time",
+  },
+  {
+    title: "DevOps Engineer",
+    team: "Platform",
+    loc: "Remote",
+    type: "Full-time",
+  },
+  {
+    title: "Cloud Engineer (AWS)",
+    team: "Cloud",
+    loc: "Remote / Onsite",
+    type: "Full-time",
+  },
+  {
+    title: "Mobile App Developer (React Native)",
+    team: "Mobile",
+    loc: "Remote",
+    type: "Full-time",
+  },
+  {
+    title: "iOS Engineer (Swift)",
+    team: "Mobile",
+    loc: "Remote / EU Onsite",
+    type: "Full-time",
+  },
+  {
+    title: "Android Engineer (Kotlin)",
+    team: "Mobile",
+    loc: "Remote",
+    type: "Full-time",
+  },
+  {
+    title: "UI/UX Designer",
+    team: "Design",
+    loc: "Remote / Onsite (Dhaka)",
+    type: "Full-time",
+  },
+  {
+    title: "Product Designer (Senior)",
+    team: "Design",
+    loc: "Remote",
+    type: "Full-time",
+  },
+  {
+    title: "QA / Automation Engineer",
+    team: "Quality",
+    loc: "Remote",
+    type: "Full-time",
+  },
+  {
+    title: "Security Engineer",
+    team: "Security",
+    loc: "Remote / Hybrid",
+    type: "Full-time",
+  },
+  {
+    title: "Technical Project Manager",
+    team: "Management",
+    loc: "Remote",
+    type: "Full-time",
+  },
 ];
 
 function CareersPage() {
+  const [openRole, setOpenRole] = useState<Role>(null);
+  const [submittedRole, setSubmittedRole] = useState<Role>(null);
+
+  const handleSubmit = (role: string) => {
+    setSubmittedRole(role);
+    setOpenRole(null);
+
+    // auto-hide success message after 3s
+    setTimeout(() => {
+      setSubmittedRole(null);
+    }, 3000);
+  };
+
   return (
     <>
+      {/* HERO */}
       <section className="bg-hero relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-40" />
-        <div className="container mx-auto px-6 py-24 lg:py-32 text-center max-w-3xl relative">
+        <div className="container mx-auto px-6 py-24 text-center">
           <Reveal>
-            <span className="text-xs font-semibold uppercase tracking-widest text-accent">Careers</span>
-            <h1 className="mt-3 font-display text-5xl sm:text-6xl font-bold">
-              Build the <span className="text-gradient">future</span> with us.
+            <h1 className="text-5xl font-bold">
+              Build the <span className="text-gradient">future</span>
             </h1>
-            <p className="mt-5 text-lg text-muted-foreground">
-              Senior talent, remote-first, async-friendly. Join a team that ships and respects your time.
+            <p className="mt-4 text-muted-foreground">
+              Join a remote-first engineering team.
             </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="container mx-auto px-6 py-20">
-        <Reveal className="max-w-2xl mx-auto text-center">
-          <span className="text-xs font-semibold uppercase tracking-widest text-accent">Why Nexora</span>
-          <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold">Perks & culture</h2>
-        </Reveal>
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {perks.map((p, i) => (
-            <Reveal key={p.t} delay={i * 80}>
-              <div className="h-full rounded-2xl bg-gradient-card border border-border p-7 hover:shadow-glow hover:-translate-y-1 transition-all">
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary shadow-glow">
-                  <p.icon className="h-6 w-6 text-primary-foreground" />
-                </div>
-                <h3 className="mt-5 font-display text-lg font-semibold">{p.t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-surface border-y border-border py-20">
-        <div className="container mx-auto px-6">
-          <Reveal className="max-w-2xl mx-auto text-center">
-            <span className="text-xs font-semibold uppercase tracking-widest text-accent">Open roles</span>
-            <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold">Join the team</h2>
-          </Reveal>
-          <div className="mt-14 max-w-4xl mx-auto space-y-3">
-            {roles.map((r, i) => (
-              <Reveal key={r.title} delay={i * 50}>
-                <div className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl glass p-5 hover:shadow-glow hover:border-primary/50 transition-all">
-                  <div>
-                    <h3 className="font-display text-lg font-semibold">{r.title}</h3>
-                    <div className="mt-1 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1"><Briefcase className="h-3.5 w-3.5" />{r.team}</span>
-                      <span className="flex items-center gap-1"><MapPin className="h-3.5 w-3.5" />{r.loc}</span>
-                      <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5" />{r.type}</span>
-                    </div>
-                  </div>
-                  <Button asChild variant="glass" size="sm">
-                    <Link to="/contact">Apply <ArrowRight className="h-4 w-4" /></Link>
-                  </Button>
-                </div>
-              </Reveal>
-            ))}
+      {/* SUCCESS MESSAGE */}
+      {submittedRole && (
+        <div className="container mx-auto px-6 mt-6">
+          <div className="rounded-xl border border-green-500/30 bg-green-500/10 p-4 text-green-400">
+            ✅ Application submitted successfully for <b>{submittedRole}</b>
           </div>
         </div>
+      )}
+
+      {/* ROLES */}
+      <section className="container mx-auto px-6 py-20 space-y-5">
+        {roles.map((r) => (
+          <div
+            key={r.title}
+            className="rounded-2xl border border-border bg-card p-5"
+          >
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h3 className="font-bold text-lg">{r.title}</h3>
+
+                <div className="flex flex-wrap gap-4 text-xs text-muted-foreground mt-1">
+                  <span className="flex items-center gap-1">
+                    <Briefcase className="h-3 w-3" /> {r.team}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <MapPin className="h-3 w-3" /> {r.loc}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-3 w-3" /> {r.type}
+                  </span>
+                </div>
+              </div>
+
+              <Button
+                variant="glass"
+                size="sm"
+                onClick={() =>
+                  setOpenRole(openRole === r.title ? null : r.title)
+                }
+              >
+                Apply <ArrowRight className="h-4 w-4" />
+              </Button>
+            </div>
+
+            {/* INLINE APPLY FORM */}
+            {openRole === r.title && (
+              <div className="mt-6 border-t border-border pt-6 space-y-4">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  className="w-full p-3 border border-border rounded-lg bg-transparent"
+                />
+
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full p-3 border border-border rounded-lg bg-transparent"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Portfolio / GitHub"
+                  className="w-full p-3 border border-border rounded-lg bg-transparent"
+                />
+
+                <div>
+                  <label className="text-sm text-muted-foreground">
+                    Upload Resume (PDF only)
+                  </label>
+
+                  <input
+                    type="file"
+                    accept=".pdf"
+                    className="w-full mt-2 p-3 border border-border rounded-lg bg-transparent"
+                  />
+                </div>
+
+                <textarea
+                  placeholder="Why do you want to join?"
+                  className="w-full p-3 border border-border rounded-lg bg-transparent h-24"
+                />
+
+                <div className="flex gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setOpenRole(null)}
+                    className="flex-1 border border-border rounded-lg p-3"
+                  >
+                    Cancel
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => handleSubmit(r.title)}
+                    className="flex-1 bg-primary text-white rounded-lg p-3"
+                  >
+                    Submit Application
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
       </section>
 
-      {/* Hiring process */}
+      {/* PERKS */}
       <section className="container mx-auto px-6 py-20">
-        <Reveal className="max-w-2xl mx-auto text-center">
-          <span className="text-xs font-semibold uppercase tracking-widest text-accent">Our process</span>
-          <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold">Hiring, the human way</h2>
-          <p className="mt-4 text-muted-foreground">No coding gauntlets. No surprise panels. We respect your time.</p>
+        <Reveal className="text-center">
+          <h2 className="text-4xl font-bold">Perks & Culture</h2>
         </Reveal>
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {[
-            { n: "01", t: "Intro call", d: "30 min with our head of talent — story, goals, fit." },
-            { n: "02", t: "Craft chat", d: "60 min with a senior peer — your past work, deep dive." },
-            { n: "03", t: "Take-home", d: "A small, paid scoped task you do on your time." },
-            { n: "04", t: "Offer", d: "Within 5 working days. References checked alongside." },
-          ].map((s, i) => (
-            <Reveal key={s.n} delay={i * 80}>
-              <div className="h-full rounded-2xl glass p-6 hover:shadow-glow transition-shadow">
-                <p className="font-display text-2xl font-bold text-gradient">{s.n}</p>
-                <h3 className="mt-2 font-display text-lg font-semibold">{s.t}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground">{s.d}</p>
-              </div>
-            </Reveal>
+
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {perks.map((p) => (
+            <div
+              key={p.t}
+              className="rounded-2xl border border-border p-6 bg-card"
+            >
+              <p.icon className="h-6 w-6 text-primary" />
+              <h3 className="mt-3 font-semibold">{p.t}</h3>
+              <p className="text-sm text-muted-foreground mt-2">{p.d}</p>
+            </div>
           ))}
         </div>
-      </section>
-
-      <section className="container mx-auto px-6 py-20">
-        <Reveal>
-          <div className="rounded-3xl bg-gradient-primary p-12 text-center shadow-elevated">
-            <h2 className="font-display text-4xl font-bold text-primary-foreground">Don't see your role?</h2>
-            <p className="mt-3 text-primary-foreground/90">We're always meeting great people. Send us a note.</p>
-            <Button asChild variant="glass" size="lg" className="mt-6">
-              <Link to="/contact">Get in touch <ArrowRight className="h-4 w-4" /></Link>
-            </Button>
-          </div>
-        </Reveal>
       </section>
     </>
   );

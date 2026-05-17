@@ -11,17 +11,26 @@ import { Counter } from "@/components/site/Counter";
 import { TechMarquee } from "@/components/site/TechMarquee";
 import hero from "@/assets/hero.jpg";
 import team from "@/assets/team.jpg";
+import user1 from "@/assets/rating/6.png";
+import user2 from "@/assets/rating/2.jpg";
+import user3 from "@/assets/rating/3.jpg";
+import user4 from "@/assets/rating/4.jpg";
+import user5 from "@/assets/rating/5.jpg";
+
+import product1 from "@/assets/product/fitness.png";
+import product2 from "@/assets/product/ecommerce.png";
+import product3 from "@/assets/product/saas.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nexora Labs — Scalable Web, Mobile & Emerging Tech Studio" },
+      { title: "MrbitX — Scalable Web, Mobile & Emerging Tech Studio" },
       {
         name: "description",
         content:
-          "Nexora Labs builds scalable digital products — web, mobile, AI, blockchain, game and cloud. Premium engineering for startups and enterprises.",
+          "MrbitX builds scalable digital products — web, mobile, AI, blockchain, game and cloud. Premium engineering for startups and enterprises.",
       },
-      { property: "og:title", content: "Nexora Labs — Scalable Software for Modern Businesses" },
+      { property: "og:title", content: "MrbitX — Scalable Software for Modern Businesses" },
       { property: "og:description", content: "We build scalable digital products that power modern businesses." },
       { property: "og:image", content: hero },
       { name: "twitter:image", content: hero },
@@ -95,8 +104,9 @@ const process = [
 
 const cases = [
   {
-    industry: "Fintech",
-    title: "Finovate — real-time trading platform",
+    industry: "Fitness",
+    title: "Fitness — real-time trading platform",
+    image: product1,
     problem: "Legacy Java monolith couldn't scale past 100k traders.",
     solution: "Rebuilt on React + Node with event sourcing and edge caching.",
     metrics: [{ v: "+300%", l: "user growth" }, { v: "50%", l: "faster load" }],
@@ -105,6 +115,7 @@ const cases = [
   {
     industry: "E-commerce",
     title: "Maven & Co — headless commerce relaunch",
+    image: product2,
     problem: "Slow PDPs were tanking conversion on a 2M-visit/mo store.",
     solution: "Headless storefront with edge SSR and a custom checkout.",
     metrics: [{ v: "+28%", l: "conversion" }, { v: "0.6s", l: "TTFB" }],
@@ -113,6 +124,7 @@ const cases = [
   {
     industry: "SaaS",
     title: "Stackline — AI analytics platform",
+    image: product3,
     problem: "Customers couldn't extract insight from raw warehouse data.",
     solution: "LLM-powered insights engine with self-serve onboarding.",
     metrics: [{ v: "5×", l: "trial → paid" }, { v: "12k", l: "workspaces" }],
@@ -121,7 +133,7 @@ const cases = [
 ];
 
 const testimonials = [
-  { name: "Sarah Chen", role: "CTO, Finovate", text: "Nexora rebuilt our trading platform in 90 days. Zero downtime, 4× faster. Their team feels like an extension of ours.", company: "FINOVATE" },
+  { name: "Sarah Chen", role: "CTO, Finovate", text: "MrbitX rebuilt our trading platform in 90 days. Zero downtime, 4× faster. Their team feels like an extension of ours.", company: "FINOVATE" },
   { name: "Marcus Hale", role: "Founder, Lumen Health", text: "From Figma to App Store in 11 weeks. The craft and pace are unmatched.", company: "LUMEN" },
   { name: "Priya Raman", role: "VP Product, Cargolane", text: "They challenge our thinking and ship like a startup. Easily our best engineering partner.", company: "CARGOLANE" },
 ];
@@ -133,6 +145,10 @@ const pricing = [
   { name: "Dedicated Team", from: "$18k/mo", desc: "An embedded squad shipping continuously." },
   { name: "Monthly Retainer", from: "$6k/mo", desc: "On-tap engineering for evolving products." },
 ];
+
+
+const users = [user1, user2, user3, user4, user5];
+
 
 function HomePage() {
   return (
@@ -153,7 +169,7 @@ function HomePage() {
               We Build <span className="text-gradient">Scalable Digital Products</span> That Power Modern Businesses
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-              Nexora Labs is a global product engineering studio. We design,
+              MrbitX  is a global product engineering studio. We design,
               build and scale web, mobile, AI and cloud products end-to-end —
               for founders, scale-ups and enterprises.
             </p>
@@ -166,11 +182,21 @@ function HomePage() {
               </Button>
             </div>
             <div className="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
-              <div className="flex -space-x-2">
-                {[0, 1, 2, 3].map((i) => (
-                  <div key={i} className="h-9 w-9 rounded-full border-2 border-background bg-gradient-primary" style={{ filter: `hue-rotate(${i * 30}deg)` }} />
-                ))}
-              </div>
+
+            <div className="flex -space-x-2">
+              {users.map((user, i) => (
+                <div
+                  key={i}
+                  className="h-9 w-9 overflow-hidden rounded-full border-2 border-background"
+                >
+                  <img
+                    src={user}
+                    alt={`User ${i + 1}`}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
               <div>
                 <div className="flex items-center gap-1 text-accent">
                   {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
@@ -182,12 +208,12 @@ function HomePage() {
 
           <Reveal delay={150} className="relative">
             <div className="relative rounded-3xl overflow-hidden shadow-elevated border border-border">
-              <img src={hero} alt="Nexora Labs software engineering" width={1600} height={1200} className="w-full h-auto" />
+              <img src={hero} alt="MrbitX software engineering" width={1600} height={1200} className="w-full h-auto" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
             </div>
             {/* Floating code snippet */}
             <div className="absolute -left-4 top-8 hidden md:block glass rounded-xl px-4 py-3 shadow-glow animate-float w-64 font-mono text-[11px]">
-              <span className="text-accent">const</span> <span className="text-primary-glow">app</span> = <span className="text-accent">await</span> nexora.<br />
+              <span className="text-accent">const</span> <span className="text-primary-glow">app</span> = <span className="text-accent">await</span> MrbitX.<br />
               &nbsp;&nbsp;build({"{ "}<span className="text-muted-foreground">scale: </span><span className="text-accent">'planet'</span>{" }"}).<br />
               &nbsp;&nbsp;deploy();
             </div>
@@ -304,30 +330,74 @@ function HomePage() {
       {/* FEATURED CASE STUDIES */}
       <section className="container mx-auto px-6 py-20">
         <Reveal className="max-w-2xl mx-auto text-center">
-          <span className="text-xs font-semibold uppercase tracking-widest text-accent">Featured work</span>
-          <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold">Outcomes, not just output</h2>
+          <span className="text-xs font-semibold uppercase tracking-widest text-accent">
+            Featured work
+          </span>
+          <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold">
+            Outcomes, not just output
+          </h2>
         </Reveal>
+
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
           {cases.map((c, i) => (
             <Reveal key={c.title} delay={i * 90}>
               <article className="group h-full rounded-3xl border border-border bg-gradient-card p-7 hover:border-primary/50 hover:shadow-glow hover:-translate-y-1 transition-all">
-                <div className={`aspect-[16/10] rounded-2xl bg-gradient-to-br ${c.color} relative overflow-hidden border border-border mb-5`}>
-                  <div className="absolute inset-0 grid-pattern opacity-30" />
-                  <div className="absolute inset-0 grid place-items-center">
-                    <span className="font-display text-3xl font-bold text-foreground/25 group-hover:scale-110 transition-transform">{c.industry}</span>
-                  </div>
+
+                {/* IMAGE SECTION */}
+                <div className="aspect-[16/10] rounded-2xl relative overflow-hidden border border-border mb-5">
+
+                  <img
+                    src={c.image}
+                    alt={c.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+
+                  {/* Gradient overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${c.color} opacity-30`} />
+
+                  {/* Industry text overlay */}
+                  {/* <div className="absolute inset-0 grid place-items-center">
+                    <span className="font-display text-3xl font-bold text-white/30 group-hover:scale-110 transition-transform">
+                      {c.industry}
+                    </span>
+                  </div> */}
+
+                  {/* subtle pattern overlay */}
+                  <div className="absolute inset-0 grid-pattern opacity-20" />
                 </div>
-                <span className="inline-block text-xs font-semibold uppercase tracking-widest text-accent">{c.industry}</span>
-                <h3 className="mt-2 font-display text-xl font-semibold">{c.title}</h3>
-                <p className="mt-3 text-xs uppercase tracking-wide text-muted-foreground">Problem</p>
+
+                {/* CONTENT */}
+                <span className="inline-block text-xs font-semibold uppercase tracking-widest text-accent">
+                  {c.industry}
+                </span>
+
+                <h3 className="mt-2 font-display text-xl font-semibold">
+                  {c.title}
+                </h3>
+
+                <p className="mt-3 text-xs uppercase tracking-wide text-muted-foreground">
+                  Problem
+                </p>
                 <p className="text-sm">{c.problem}</p>
-                <p className="mt-3 text-xs uppercase tracking-wide text-muted-foreground">Solution</p>
+
+                <p className="mt-3 text-xs uppercase tracking-wide text-muted-foreground">
+                  Solution
+                </p>
                 <p className="text-sm">{c.solution}</p>
+
+                {/* METRICS */}
                 <div className="mt-5 grid grid-cols-2 gap-3">
                   {c.metrics.map((m) => (
-                    <div key={m.l} className="rounded-xl glass p-3 text-center">
-                      <p className="font-display text-xl font-bold text-gradient">{m.v}</p>
-                      <p className="text-[10px] uppercase tracking-wide text-muted-foreground">{m.l}</p>
+                    <div
+                      key={m.l}
+                      className="rounded-xl glass p-3 text-center"
+                    >
+                      <p className="font-display text-xl font-bold text-gradient">
+                        {m.v}
+                      </p>
+                      <p className="text-[10px] uppercase tracking-wide text-muted-foreground">
+                        {m.l}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -335,9 +405,13 @@ function HomePage() {
             </Reveal>
           ))}
         </div>
+
+        {/* CTA */}
         <div className="mt-10 text-center">
           <Button asChild variant="glass" size="lg">
-            <Link to="/case-studies">All case studies <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/case-studies">
+              All case studies <ArrowRight className="h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </section>
@@ -351,7 +425,7 @@ function HomePage() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <span className="text-xs font-semibold uppercase tracking-widest text-accent">Why Nexora</span>
+            <span className="text-xs font-semibold uppercase tracking-widest text-accent">Why MrbitX</span>
             <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold">
               Senior talent. Startup velocity. Enterprise rigor.
             </h2>
@@ -372,7 +446,7 @@ function HomePage() {
               ))}
             </ul>
             <Button asChild variant="hero" size="lg" className="mt-8">
-              <Link to="/about">About Nexora <ArrowRight className="h-4 w-4" /></Link>
+              <Link to="/about">About MrbitX <ArrowRight className="h-4 w-4" /></Link>
             </Button>
           </Reveal>
         </div>

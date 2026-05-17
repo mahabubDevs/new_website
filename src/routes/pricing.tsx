@@ -6,9 +6,9 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Pricing — Engagement Models | Nexora Labs" },
+      { title: "Pricing — Engagement Models | MrbitX" },
       { name: "description", content: "Flexible engagement models — fixed-price projects, dedicated teams and monthly retainers — built around your goals." },
-      { property: "og:title", content: "Pricing — Nexora Labs" },
+      { property: "og:title", content: "Pricing — MrbitX " },
       { property: "og:description", content: "Fixed Project, Dedicated Team or Monthly Retainer — choose how we work together." },
     ],
   }),

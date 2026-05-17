@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -33,11 +34,15 @@ export function Header() {
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-6">
         <Link to="/" className="flex items-center gap-2 group">
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-primary shadow-glow transition-transform group-hover:scale-110">
-            <Code2 className="h-5 w-5 text-primary-foreground" />
+          <span className="grid h-9 w-9 place-items-center transition-transform group-hover:scale-110">
+            <img
+              src={logo}
+              alt="MrBitX Logo"
+              className="h-full w-full object-contain"
+            />
           </span>
           <span className="font-display text-lg font-semibold tracking-tight">
-            Nexora<span className="text-gradient">Labs</span>
+            Mrbit<span className="text-gradient">X</span>
           </span>
         </Link>
 

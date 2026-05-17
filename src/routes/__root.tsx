@@ -32,13 +32,13 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nexora Labs — Web & Mobile App Development Company" },
+      { title: "MrbitX  — Web & Mobile App Development Company" },
       {
         name: "description",
         content:
-          "Nexora Labs is a global software development company building scalable web and mobile applications for ambitious teams.",
+          "MrbitX  is a global software development company building scalable web and mobile applications for ambitious teams.",
       },
-      { name: "author", content: "Nexora Labs" },
+      { name: "author", content: "MrbitX " },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

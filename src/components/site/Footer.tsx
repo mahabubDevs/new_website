@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Code2, Github, Linkedin, Twitter, Mail, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import logo from "@/assets/logo.png";
 export function Footer() {
   return (
     <footer className="relative border-t border-border bg-surface mt-24">
@@ -33,11 +33,15 @@ export function Footer() {
       <div className="container mx-auto px-6 pb-16 grid gap-12 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-2">
           <Link to="/" className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-primary shadow-glow">
-              <Code2 className="h-5 w-5 text-primary-foreground" />
-            </span>
+            <span className="grid h-9 w-9 place-items-center transition-transform group-hover:scale-110">
+                <img
+                  src={logo}
+                  alt="MrBitX Logo"
+                  className="h-full w-full object-contain"
+                />
+              </span>
             <span className="font-display text-lg font-semibold">
-              Nexora<span className="text-gradient">Labs</span>
+              Mrbit<span className="text-gradient">X</span>
             </span>
           </Link>
           <p className="mt-4 text-sm text-muted-foreground max-w-sm">
@@ -82,8 +86,8 @@ export function Footer() {
 
         <div>
           <h4 className="font-display text-sm font-semibold mb-4">Get in touch</h4>
-          <p className="text-sm text-muted-foreground">hello@nexoralabs.com</p>
-          <p className="text-sm text-muted-foreground mt-1">+1 (555) 010-2024</p>
+          <p className="text-sm text-muted-foreground">info@mrbitx.com</p>
+          <p className="text-sm text-muted-foreground mt-1">+880 1346 810082</p>
           <p className="text-sm text-muted-foreground mt-4">
             Berlin · Remote-first, global
           </p>
@@ -92,7 +96,7 @@ export function Footer() {
 
       <div className="border-t border-border">
         <div className="container mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Nexora Labs. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} MrbitX. All rights reserved.</p>
           <p>Crafted with precision · Built to scale</p>
         </div>
       </div>
