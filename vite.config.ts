@@ -11,4 +11,10 @@ export default defineConfig({
     tailwindcss(),
     tsconfigPaths(),
   ],
+  server: {
+    allowedHosts: ["www.mrbitx.com", "mrbitx.com"],
+  },
+  preview: {
+    allowedHosts: ["www.mrbitx.com", "mrbitx.com"],
+  },
 });
