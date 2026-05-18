@@ -28,96 +28,21 @@ const perks = [
 ];
 
 const roles = [
-  {
-    title: "Senior Full-Stack Engineer",
-    team: "Engineering",
-    loc: "Remote",
-    type: "Full-time",
-  },
-  {
-    title: "Frontend Engineer (React)",
-    team: "Engineering",
-    loc: "Remote / Onsite (Dhaka)",
-    type: "Full-time",
-  },
-  {
-    title: "Backend Engineer (Node.js)",
-    team: "Engineering",
-    loc: "Remote",
-    type: "Full-time",
-  },
-  {
-    title: "AI Engineer",
-    team: "AI",
-    loc: "Remote",
-    type: "Full-time",
-  },
-  {
-    title: "Machine Learning Engineer",
-    team: "AI",
-    loc: "Remote / Hybrid",
-    type: "Full-time",
-  },
-  {
-    title: "DevOps Engineer",
-    team: "Platform",
-    loc: "Remote",
-    type: "Full-time",
-  },
-  {
-    title: "Cloud Engineer (AWS)",
-    team: "Cloud",
-    loc: "Remote / Onsite",
-    type: "Full-time",
-  },
-  {
-    title: "Mobile App Developer (React Native)",
-    team: "Mobile",
-    loc: "Remote",
-    type: "Full-time",
-  },
-  {
-    title: "iOS Engineer (Swift)",
-    team: "Mobile",
-    loc: "Remote / EU Onsite",
-    type: "Full-time",
-  },
-  {
-    title: "Android Engineer (Kotlin)",
-    team: "Mobile",
-    loc: "Remote",
-    type: "Full-time",
-  },
-  {
-    title: "UI/UX Designer",
-    team: "Design",
-    loc: "Remote / Onsite (Dhaka)",
-    type: "Full-time",
-  },
-  {
-    title: "Product Designer (Senior)",
-    team: "Design",
-    loc: "Remote",
-    type: "Full-time",
-  },
-  {
-    title: "QA / Automation Engineer",
-    team: "Quality",
-    loc: "Remote",
-    type: "Full-time",
-  },
-  {
-    title: "Security Engineer",
-    team: "Security",
-    loc: "Remote / Hybrid",
-    type: "Full-time",
-  },
-  {
-    title: "Technical Project Manager",
-    team: "Management",
-    loc: "Remote",
-    type: "Full-time",
-  },
+  { title: "Senior Full-Stack Engineer", team: "Engineering", loc: "Remote", type: "Full-time" },
+  { title: "Frontend Engineer (React)", team: "Engineering", loc: "Remote / Onsite (Dhaka)", type: "Full-time" },
+  { title: "Backend Engineer (Node.js)", team: "Engineering", loc: "Remote", type: "Full-time" },
+  { title: "AI Engineer", team: "AI", loc: "Remote", type: "Full-time" },
+  { title: "Machine Learning Engineer", team: "AI", loc: "Remote / Hybrid", type: "Full-time" },
+  { title: "DevOps Engineer", team: "Platform", loc: "Remote", type: "Full-time" },
+  { title: "Cloud Engineer (AWS)", team: "Cloud", loc: "Remote / Onsite", type: "Full-time" },
+  { title: "Mobile App Developer (React Native)", team: "Mobile", loc: "Remote", type: "Full-time" },
+  { title: "iOS Engineer (Swift)", team: "Mobile", loc: "Remote / EU Onsite", type: "Full-time" },
+  { title: "Android Engineer (Kotlin)", team: "Mobile", loc: "Remote", type: "Full-time" },
+  { title: "UI/UX Designer", team: "Design", loc: "Remote / Onsite (Dhaka)", type: "Full-time" },
+  { title: "Product Designer (Senior)", team: "Design", loc: "Remote", type: "Full-time" },
+  { title: "QA / Automation Engineer", team: "Quality", loc: "Remote", type: "Full-time" },
+  { title: "Security Engineer", team: "Security", loc: "Remote / Hybrid", type: "Full-time" },
+  { title: "Technical Project Manager", team: "Management", loc: "Remote", type: "Full-time" },
 ];
 
 function CareersPage() {
@@ -128,7 +53,6 @@ function CareersPage() {
     setSubmittedRole(role);
     setOpenRole(null);
 
-    // auto-hide success message after 3s
     setTimeout(() => {
       setSubmittedRole(null);
     }, 3000);
@@ -138,12 +62,13 @@ function CareersPage() {
     <>
       {/* HERO */}
       <section className="bg-hero relative overflow-hidden">
-        <div className="container mx-auto px-6 py-24 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 text-center">
           <Reveal>
-            <h1 className="text-5xl font-bold">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               Build the <span className="text-gradient">future</span>
             </h1>
-            <p className="mt-4 text-muted-foreground">
+
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground">
               Join a remote-first engineering team.
             </p>
           </Reveal>
@@ -152,25 +77,26 @@ function CareersPage() {
 
       {/* SUCCESS MESSAGE */}
       {submittedRole && (
-        <div className="container mx-auto px-6 mt-6">
-          <div className="rounded-xl border border-green-500/30 bg-green-500/10 p-4 text-green-400">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+          <div className="rounded-xl border border-green-500/30 bg-green-500/10 p-4 text-green-400 text-sm sm:text-base">
             ✅ Application submitted successfully for <b>{submittedRole}</b>
           </div>
         </div>
       )}
 
       {/* ROLES */}
-      <section className="container mx-auto px-6 py-20 space-y-5">
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20 space-y-5 sm:space-y-6">
         {roles.map((r) => (
           <div
             key={r.title}
-            className="rounded-2xl border border-border bg-card p-5"
+            className="rounded-2xl border border-border bg-card p-4 sm:p-5"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              
               <div>
-                <h3 className="font-bold text-lg">{r.title}</h3>
+                <h3 className="font-bold text-base sm:text-lg">{r.title}</h3>
 
-                <div className="flex flex-wrap gap-4 text-xs text-muted-foreground mt-1">
+                <div className="flex flex-wrap gap-3 sm:gap-4 text-[11px] sm:text-xs text-muted-foreground mt-1">
                   <span className="flex items-center gap-1">
                     <Briefcase className="h-3 w-3" /> {r.team}
                   </span>
@@ -186,6 +112,7 @@ function CareersPage() {
               <Button
                 variant="glass"
                 size="sm"
+                className="w-full sm:w-auto"
                 onClick={() =>
                   setOpenRole(openRole === r.title ? null : r.title)
                 }
@@ -194,49 +121,50 @@ function CareersPage() {
               </Button>
             </div>
 
-            {/* INLINE APPLY FORM */}
+            {/* APPLY FORM */}
             {openRole === r.title && (
               <div className="mt-6 border-t border-border pt-6 space-y-4">
+                
                 <input
                   type="text"
                   placeholder="Full Name"
-                  className="w-full p-3 border border-border rounded-lg bg-transparent"
+                  className="w-full p-3 border border-border rounded-lg bg-transparent text-sm sm:text-base"
                 />
 
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full p-3 border border-border rounded-lg bg-transparent"
+                  className="w-full p-3 border border-border rounded-lg bg-transparent text-sm sm:text-base"
                 />
 
                 <input
                   type="text"
                   placeholder="Portfolio / GitHub"
-                  className="w-full p-3 border border-border rounded-lg bg-transparent"
+                  className="w-full p-3 border border-border rounded-lg bg-transparent text-sm sm:text-base"
                 />
 
                 <div>
-                  <label className="text-sm text-muted-foreground">
+                  <label className="text-xs sm:text-sm text-muted-foreground">
                     Upload Resume (PDF only)
                   </label>
 
                   <input
                     type="file"
                     accept=".pdf"
-                    className="w-full mt-2 p-3 border border-border rounded-lg bg-transparent"
+                    className="w-full mt-2 p-3 border border-border rounded-lg bg-transparent text-sm sm:text-base"
                   />
                 </div>
 
                 <textarea
                   placeholder="Why do you want to join?"
-                  className="w-full p-3 border border-border rounded-lg bg-transparent h-24"
+                  className="w-full p-3 border border-border rounded-lg bg-transparent h-24 text-sm sm:text-base"
                 />
 
-                <div className="flex gap-3 pt-2">
+                <div className="flex flex-col sm:flex-row gap-3 pt-2">
                   <button
                     type="button"
                     onClick={() => setOpenRole(null)}
-                    className="flex-1 border border-border rounded-lg p-3"
+                    className="flex-1 border border-border rounded-lg p-3 text-sm sm:text-base"
                   >
                     Cancel
                   </button>
@@ -244,7 +172,7 @@ function CareersPage() {
                   <button
                     type="button"
                     onClick={() => handleSubmit(r.title)}
-                    className="flex-1 bg-primary text-white rounded-lg p-3"
+                    className="flex-1 bg-primary text-white rounded-lg p-3 text-sm sm:text-base"
                   >
                     Submit Application
                   </button>
@@ -256,20 +184,26 @@ function CareersPage() {
       </section>
 
       {/* PERKS */}
-      <section className="container mx-auto px-6 py-20">
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
         <Reveal className="text-center">
-          <h2 className="text-4xl font-bold">Perks & Culture</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
+            Perks & Culture
+          </h2>
         </Reveal>
 
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {perks.map((p) => (
             <div
               key={p.t}
-              className="rounded-2xl border border-border p-6 bg-card"
+              className="rounded-2xl border border-border p-5 sm:p-6 bg-card"
             >
-              <p.icon className="h-6 w-6 text-primary" />
-              <h3 className="mt-3 font-semibold">{p.t}</h3>
-              <p className="text-sm text-muted-foreground mt-2">{p.d}</p>
+              <p.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+              <h3 className="mt-3 font-semibold text-sm sm:text-base">
+                {p.t}
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-2">
+                {p.d}
+              </p>
             </div>
           ))}
         </div>

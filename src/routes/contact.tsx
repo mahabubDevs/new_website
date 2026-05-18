@@ -55,17 +55,13 @@ function ContactPage() {
     };
 
     try {
-      const res = await fetch(
-        // "https://mrbitx-contact.onrender.com/api/contact",
-        "http://50.6.200.33:5009/api/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      const res = await fetch("http://50.6.200.33:5009/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
       if (res.ok) {
         setSent(true);
@@ -84,53 +80,54 @@ function ContactPage() {
     <section className="bg-hero relative overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-40" />
 
-      <div className="container mx-auto px-6 py-20 lg:py-28 relative grid lg:grid-cols-2 gap-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-28 relative grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
+        
         {/* LEFT SIDE */}
         <Reveal>
           <span className="text-xs font-semibold uppercase tracking-widest text-accent">
             Contact
           </span>
 
-          <h1 className="mt-3 font-display text-5xl sm:text-6xl font-bold leading-tight">
+          <h1 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
             Let's build your{" "}
             <span className="text-gradient">app or website</span>.
           </h1>
 
-          <p className="mt-5 text-lg text-muted-foreground max-w-lg">
+          <p className="mt-4 sm:mt-5 text-base sm:text-lg text-muted-foreground max-w-lg">
             Tell us about your project and we'll respond within 24 hours.
           </p>
 
-          <div className="mt-10 space-y-5">
+          <div className="mt-8 sm:mt-10 space-y-4 sm:space-y-5">
             {[
               { icon: Mail, l: "Email", v: "info@mrbitx.com" },
               { icon: Phone, l: "Phone", v: "+880 1346-810082" },
               { icon: MapPin, l: "HQ", v: "Berlin · Remote-first" },
             ].map((c) => (
-              <div key={c.l} className="flex items-center gap-4">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-primary shadow-glow">
-                  <c.icon className="h-5 w-5 text-white" />
+              <div key={c.l} className="flex items-center gap-3 sm:gap-4">
+                <div className="grid h-10 w-10 sm:h-11 sm:w-11 place-items-center rounded-xl bg-gradient-primary shadow-glow">
+                  <c.icon className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground uppercase">
+                  <p className="text-[10px] sm:text-xs text-muted-foreground uppercase">
                     {c.l}
                   </p>
-                  <p className="font-medium">{c.v}</p>
+                  <p className="text-sm sm:text-base font-medium">{c.v}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-10 grid sm:grid-cols-2 gap-3">
+          <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3">
             <a
               href="https://wa.me/+8801346810082"
-              className="flex items-center justify-center gap-2 rounded-xl bg-green-500 text-white px-4 py-3"
+              className="flex items-center justify-center gap-2 rounded-xl bg-green-500 text-white px-4 py-3 text-sm sm:text-base"
             >
               <MessageCircle className="h-4 w-4" /> WhatsApp
             </a>
 
             <a
               href="https://calendly.com/MrbitXlabs/intro"
-              className="flex items-center justify-center gap-2 rounded-xl border px-4 py-3"
+              className="flex items-center justify-center gap-2 rounded-xl border px-4 py-3 text-sm sm:text-base"
             >
               <Calendar className="h-4 w-4" /> Book Call
             </a>
@@ -139,20 +136,21 @@ function ContactPage() {
 
         {/* RIGHT SIDE FORM */}
         <Reveal delay={150}>
-          <div className="rounded-3xl border p-8 shadow-elevated bg-white/5">
+          <div className="rounded-3xl border p-5 sm:p-6 lg:p-8 shadow-elevated bg-white/5">
             {sent ? (
-              <div className="text-center py-16">
-                <CheckCircle2 className="mx-auto h-14 w-14 text-green-500" />
-                <h2 className="mt-4 text-2xl font-semibold">
+              <div className="text-center py-12 sm:py-16">
+                <CheckCircle2 className="mx-auto h-12 sm:h-14 w-12 sm:w-14 text-green-500" />
+                <h2 className="mt-4 text-xl sm:text-2xl font-semibold">
                   Message Sent!
                 </h2>
-                <p className="text-muted-foreground mt-2">
+                <p className="text-muted-foreground mt-2 text-sm sm:text-base">
                   We will contact you soon.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid sm:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <Label>Name</Label>
                     <Input id="name" required placeholder="Your name" />
@@ -182,7 +180,7 @@ function ContactPage() {
                         type="button"
                         key={s}
                         onClick={() => setService(s)}
-                        className={`px-3 py-1 rounded-full border text-xs ${
+                        className={`px-3 py-1 rounded-full border text-xs sm:text-sm transition ${
                           service === s ? "bg-black text-white" : ""
                         }`}
                       >
@@ -194,13 +192,13 @@ function ContactPage() {
 
                 <div>
                   <Label>Budget</Label>
-                  <div className="grid grid-cols-2 gap-2 mt-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
                     {budgets.map((b) => (
                       <button
                         type="button"
                         key={b}
                         onClick={() => setBudget(b)}
-                        className={`px-3 py-2 border rounded ${
+                        className={`px-3 py-2 border rounded text-xs sm:text-sm transition ${
                           budget === b ? "bg-black text-white" : ""
                         }`}
                       >
@@ -212,13 +210,13 @@ function ContactPage() {
 
                 <div>
                   <Label>Timeline</Label>
-                  <div className="grid grid-cols-2 gap-2 mt-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
                     {timelines.map((t) => (
                       <button
                         type="button"
                         key={t}
                         onClick={() => setTimeline(t)}
-                        className={`px-3 py-2 border rounded ${
+                        className={`px-3 py-2 border rounded text-xs sm:text-sm transition ${
                           timeline === t ? "bg-black text-white" : ""
                         }`}
                       >
@@ -234,7 +232,7 @@ function ContactPage() {
                 </div>
 
                 <Button type="submit" className="w-full" disabled={loading}>
-                  {loading ? "Sending..." : "Send Message"}{" "}
+                  {loading ? "Sending..." : "Send Message"}
                   <Send className="h-4 w-4 ml-2" />
                 </Button>
               </form>

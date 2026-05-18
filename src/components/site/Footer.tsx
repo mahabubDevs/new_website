@@ -16,7 +16,7 @@ export function Footer() {
               One short, useful read every two weeks. No spam, ever.
             </p>
           </div>
-          <form className="flex gap-2">
+          <form className="flex flex-col sm:flex-row gap-2">
             <input
               type="email"
               required
@@ -47,7 +47,7 @@ export function Footer() {
           <p className="mt-4 text-sm text-muted-foreground max-w-sm">
             A premium product engineering studio building scalable web, mobile, AI and cloud products for ambitious teams worldwide.
           </p>
-          <div className="mt-6 flex gap-3">
+          <div className="mt-6 flex flex-wrap gap-3">
             {[Twitter, Linkedin, Github, Mail].map((Icon, i) => (
               <a
                 key={i}

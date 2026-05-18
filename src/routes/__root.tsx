@@ -5,17 +5,24 @@ import { FloatingCTA } from "@/components/site/FloatingCTA";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-hero px-4">
+    <div className="flex min-h-screen items-center justify-center bg-hero px-4 sm:px-6 lg:px-8">
       <div className="max-w-md text-center">
-        <h1 className="text-8xl font-display font-bold text-gradient">404</h1>
-        <h2 className="mt-4 text-2xl font-display font-semibold">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <h1 className="text-6xl sm:text-7xl lg:text-8xl font-display font-bold text-gradient">
+          404
+        </h1>
+
+        <h2 className="mt-3 sm:mt-4 text-xl sm:text-2xl font-display font-semibold">
+          Page not found
+        </h2>
+
+        <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
           The page you're looking for doesn't exist or has been moved.
         </p>
-        <div className="mt-6">
+
+        <div className="mt-5 sm:mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-gradient-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-glow hover:scale-105 transition-transform"
+            className="inline-flex items-center justify-center rounded-md bg-gradient-primary px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-medium text-primary-foreground shadow-glow hover:scale-105 transition-transform"
           >
             Back home
           </Link>
@@ -34,12 +41,13 @@ function RootComponent() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <main className="flex-1 pt-16">
+
+      <main className="flex-1 pt-14 sm:pt-16">
         <Outlet />
       </main>
+
       <Footer />
       <FloatingCTA />
     </div>
   );
 }
-
